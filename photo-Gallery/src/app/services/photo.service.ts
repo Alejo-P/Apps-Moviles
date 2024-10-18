@@ -10,6 +10,7 @@ import { Injectable } from '@angular/core';
 
 export class PhotoService {
   public photos: UserPhoto[] = [];
+  private PHOTO_STORAGE: string = "photos";
   
   constructor() { }
   
@@ -23,12 +24,32 @@ export class PhotoService {
 
     const savedImageFile = await this.savePicture(capturedPhoto);
     
-    this.photos.unshift({
-      filepath: "soon...",
-      webviewPath: capturedPhoto.webPath
-    });
+    this.photos.unshift(savedImageFile);
     
+    // Guardar todas las fotos para mostrarlas en la galería
+    Preferences.set({
+      key: this.PHOTO_STORAGE,
+      value: JSON.stringify(this.photos)
+    });
     return capturedPhoto;
+  };
+
+  // Funcion para cargar las fotos guardadas
+  public async loadSaved() {
+    // Obtener las fotos guardadas
+    const { value } = await Preferences.get({ key: this.PHOTO_STORAGE });
+    this.photos = (value ? JSON.parse(value) || [] : []) as UserPhoto[];
+    
+    // Mostrar la foto obtenida
+    for (let photo of this.photos) {
+      const readFile = await Filesystem.readFile({
+        path: photo.filepath,
+        directory: Directory.Data
+      });
+
+      // WebviewPath es la ruta de la foto en el sistema de archivos
+      photo.webviewPath = `data:image/jpeg;base64,${readFile.data}`;
+    };
   };
 
   // Guardar la foto en el sistema de archivos
