@@ -1,0 +1,7 @@
+{
+  "name": "Taller-Clase",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
