@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 3
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  
+  <div class="bg-slate-500 rounded-lg p-3 flex flex-row justify-center">
+    <ion-input
+      class="bg-slate-300"
+      type="text"
+      [(ngModel)]="pantalla"
+      readonly
+    ></ion-input>
+  </div>
+
+  <div
+    class="bg-slate-500 rounded-lg mt-5 p-3 grid grid-cols-4 gap-2"
+  >
+    <ion-button 
+      *ngFor ="let num of listaBotonesCalculadora"
+      (click)="agregarNumero(num.texto)"
+    >
+      {{num.texto}}
+    </ion-button>
+
+  </div>
+
+
+
+  
+</ion-content>
