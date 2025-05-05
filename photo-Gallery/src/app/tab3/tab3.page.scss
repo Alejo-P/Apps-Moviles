@@ -1,0 +1,43 @@
+.photo-card {
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+  
+.photo-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    padding: 10px;
+}
+  
+.photo-header {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+}
+  
+.delete-button {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ff0000;
+    font-size: 12px;
+}
+  
+.spin {
+    animation: spin 1s linear infinite;
+}
+  
+@keyframes spin {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+  

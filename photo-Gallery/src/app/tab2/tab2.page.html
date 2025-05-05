@@ -1,26 +1,50 @@
 <ion-header>
- <ion-toolbar>
+  <ion-toolbar>
     <ion-title>Photo Gallery</ion-title>
- </ion-toolbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid>
-    <ion-row *ngIf="photoService.photos.length === 0">
-      <ion-col class="ion-text-center">
-        <ion-text color="medium">Take a photo to start the gallery</ion-text>
-      </ion-col>
-    </ion-row>
     <ion-row>
-      <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">
-        <ion-img [src]="photo.webviewPath"></ion-img>
+      <ion-col class="ion-text-center">
+        <ion-text color="medium">
+          Take a photo to start the gallery
+        </ion-text>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <ion-fab-button (click)="addPhotoToGallery()">
-      <ion-icon name="camera"></ion-icon>
-    </ion-fab-button>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed" class="fab-row">
+    <ion-row class="ion-align-items-center ion-justify-content-center fab-buttons">
+      <ion-col size="auto">
+        <ion-fab-button id="open-modal" title="Tomar una nueva foto">
+          <ion-icon name="camera"></ion-icon>
+        </ion-fab-button>
+      </ion-col>
+    </ion-row>
   </ion-fab>
+
+  <ion-modal #modal trigger="open-modal">
+    <ng-template>
+      <ion-content>
+        <ion-toolbar>
+          <ion-title>Camera Options</ion-title>
+          <ion-buttons slot="end">
+            <ion-button color="light" (click)="modal.dismiss()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+        <ion-list>
+          <ion-item button (click)="addPhotoToGallery(100)">
+            <ion-icon name="star" slot="start"></ion-icon>
+            <ion-label>Take Photo (100% quality)</ion-label>
+          </ion-item>
+          <ion-item button (click)="addPhotoToGallery(50)">
+            <ion-icon name="star-half" slot="start"></ion-icon>
+            <ion-label>Take Photo (50% quality)</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

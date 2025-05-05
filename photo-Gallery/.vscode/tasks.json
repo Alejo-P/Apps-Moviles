@@ -1,0 +1,38 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build & Copy Ionic",
+      "type": "shell",
+      "command": "ionic build && npx cap copy",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "detail": "Compila el frontend y lo copia al proyecto Android"
+    },
+    {
+      "label": "Sync & Open Android Studio",
+      "type": "shell",
+      "command": "npx cap sync android && npx cap open android",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": [],
+      "detail": "Sincroniza todo y abre el proyecto en Android Studio"
+    },
+    {
+      "label": "Serve Ionic",
+      "type": "shell",
+      "command": "ionic serve",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "detail": "Inicia el servidor de desarrollo de Ionic"
+    }
+  ]
+}

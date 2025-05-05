@@ -8,13 +8,12 @@ import { PhotoService } from '../services/photo.service';
 })
 export class Tab2Page {
 
-  constructor(public photoService: PhotoService) {}
+  constructor(
+    public photoService: PhotoService,
+  ) {}
+  public showModal = false; // Variable para controlar la visibilidad del modal
 
-  async ngOnInit() {
-    await this.photoService.loadSaved();
-  }
-
-  addPhotoToGallery() {
-    this.photoService.takePhoto();
+  addPhotoToGallery(quality: number) {
+    this.photoService.takePhoto(quality);
   }
 }
