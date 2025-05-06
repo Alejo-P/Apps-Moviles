@@ -3,5 +3,25 @@
     "@ionic/angular/common",
     "@ionic/angular/standalone"
   ],
-  "java.configuration.updateBuildConfiguration": "interactive"
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#25936f",
+    "activityBar.background": "#25936f",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#d9b3ec",
+    "activityBarBadge.foreground": "#15202b",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#25936f",
+    "statusBar.background": "#1b6a50",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#25936f",
+    "statusBarItem.remoteBackground": "#1b6a50",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#1b6a50",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#1b6a5099",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#1b6a50"
 }
